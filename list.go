@@ -13,7 +13,8 @@ func (c *Client) List(req ListReq) (*ListResp, error) {
 	if err != nil {
 		return nil, err
 	}
-	request, _ := http.NewRequest("POST", c.config.ServerUrl+"/api/fs/list", bytes.NewReader(jsonBytes))
+	request, _ := http.NewRequest("POST", c.config.ServerUrl+"/api/fs/list", bytes.NewBuffer(jsonBytes))
+	request.Header.Set("Content-Type", "application/json")
 	request.Header.Set("Authorization", c.config.Token)
 	result, err := c.httpClient.Do(request)
 	if err != nil {
