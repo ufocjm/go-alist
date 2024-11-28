@@ -1,4 +1,4 @@
-package go_alist
+package alist
 
 import (
 	"bytes"

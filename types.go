@@ -1,1 +1,1 @@
-package go_alist
+package alist
